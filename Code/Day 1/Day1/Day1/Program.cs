@@ -66,7 +66,6 @@ void getDepthIncreaseRate()
 
     foreach (var i in GetInput())
     {
-        
 
         if (lastValue > 0 && Convert.ToInt32(i) > lastValue)
         {
@@ -89,10 +88,34 @@ void getDepthIncreaseRate()
 
 void getDepthSumIncreaseRate()
 {
-    int sum = 0;
-    Console.WriteLine("Elfs! We Need to sumation of the Depth Increase Rate!");
+    int count = 0;
+    int currentSum = 0;
+    int previousSum = 0;
+    var input = GetInput();
 
+    Console.WriteLine("Elfs! We Need the Depth Rate of the summed depths!");
+    
+    for(int i = 0; i < input.Count; i ++)
+    {
+       
+        currentSum = input.Skip(i).Take(3).Sum(x => Convert.ToInt32(x));
 
+        if (i > 0 && currentSum > previousSum)
+        {
+            Console.WriteLine("(increased)" +" - " + currentSum);
+            count++;
+        }
+        else if (i > 0 && currentSum <= previousSum)
+        {
+            Console.WriteLine("(decreased)" +" - " + currentSum);
+        }
+        else
+        {
+            Console.WriteLine("(N/A - no previous measurement)" +" - " + currentSum);
+        }
 
-    Console.WriteLine("The sumation of the Depth Increase Rate is **"+sum.ToString()+"**");
+        previousSum = currentSum;
+    }
+
+    Console.WriteLine("The Depth Increase Rate is **" + count.ToString() + "**");
 }
