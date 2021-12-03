@@ -27,9 +27,8 @@ void GetPosition()
     int horizontalPosition = 0;
     int depthPosition = 0;
     int aim = 0;
-    var input = GetInput();
 
-    input.ForEach(r =>
+    GetInput().ForEach(r =>
     {
 
         switch (r)
