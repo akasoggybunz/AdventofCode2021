@@ -49,7 +49,7 @@ getDepthSumIncreaseRate();
 // Get Puzzle Input
 List<string> GetInput()
 {
-    return System.IO.File.ReadAllLines(@"C:\Users\afoster\Source\Repos\NewRepo\Code\Day 1\Day1\Day1\Input.txt").ToList();
+    return System.IO.File.ReadAllLines(@"Input.txt").ToList();
 }
 
 // Get Depth
